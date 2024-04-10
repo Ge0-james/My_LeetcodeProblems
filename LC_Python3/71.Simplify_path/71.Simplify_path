@@ -1,0 +1,13 @@
+class Solution:
+    def simplifyPath(self, path: str) -> str:
+        dir=path.split("/")
+        dir1=" ".join(dir).split()
+        simpath=[]
+        flag=0
+        for i in dir1:
+            if(i!="." and i!=".."):
+                simpath.append(i)
+            if(i==".." ):
+                if not(not simpath):
+                    simpath.pop()
+        return "/"+"/".join(simpath)
